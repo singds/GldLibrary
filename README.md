@@ -1,6 +1,6 @@
 # GldLibrary
 
-This is yet another GUI library for embedded systems.
+Yet another GUI library for embedded systems.
 
 ## Features
 - Can run on a wide range of displays, including monochrome and color.
