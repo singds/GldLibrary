@@ -2,7 +2,7 @@
 #define GLDIMG_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "imgCvt.h"
 
@@ -44,33 +44,33 @@ typedef struct
     /* larghezza dell'immagine in pixel */
     int32_t BiHeight;
     /* corrisponde in valore assoluto all'altezza dell'immagine in pixel:
-        quando il valore è positivo
-            l'immagine è bottom-up (la mappa dei pixel incomincia dalla riga di
-            pixel più in basso e finisce con quella più in alto). Questa è la
-            variante più comune.
-        quando il valore è negativo
-            l'immagine è top-down (la mappa dei pixel incomincia dalla riga di
-            pixel più in alto e finisce con quella più in basso). */
+        quando il valore ï¿½ positivo
+            l'immagine ï¿½ bottom-up (la mappa dei pixel incomincia dalla riga di
+            pixel piï¿½ in basso e finisce con quella piï¿½ in alto). Questa ï¿½ la
+            variante piï¿½ comune.
+        quando il valore ï¿½ negativo
+            l'immagine ï¿½ top-down (la mappa dei pixel incomincia dalla riga di
+            pixel piï¿½ in alto e finisce con quella piï¿½ in basso). */
     uint16_t BiPlanes;
     /* sempre 1 */
     uint16_t BiBitCount;
-    /* profondità di colore dell'immagine in bit per pixel, dev'essere uno dei
+    /* profonditï¿½ di colore dell'immagine in bit per pixel, dev'essere uno dei
         seguenti valori: 1, 4, 8, 16, 24 o 32. In caso di 1, 4 o 8 bit per pixel
         i colori sono indicizzati. I valori 16 e 32 sono poco comuni. Nella
-        versione 5 del formato si può usare il valore 0 quando viene incapsulata
+        versione 5 del formato si puï¿½ usare il valore 0 quando viene incapsulata
         un'immagine JPEG o PNG. */
     uint32_t BiCompression;
     /* uno dei seguenti valori:
         0 (BI_RGB)
-            La mappa dei pixel non è compressa.
+            La mappa dei pixel non ï¿½ compressa.
         1 (BI_RLE8)
-            La mappa dei pixel è compressa con l'algoritmo RLE per 8 bit per pixel.
+            La mappa dei pixel ï¿½ compressa con l'algoritmo RLE per 8 bit per pixel.
             Valido solo per biBitCount = 8 e biHeight > 0.
         2 (BI_RLE4)
-            La mappa dei pixel è compressa con l'algoritmo RLE per 4 bit per pixel.
+            La mappa dei pixel ï¿½ compressa con l'algoritmo RLE per 4 bit per pixel.
             Valido solo per biBitCount = 4 e biHeight > 0.
         3 (BI_BITFIELDS)
-            La mappa dei pixel non è compressa ed è codificata secondo maschere di
+            La mappa dei pixel non ï¿½ compressa ed ï¿½ codificata secondo maschere di
             colore personalizzate. Valido solo per biBitCount = 16 o 32; poco comune.
             Nella versione 5 del formato sono ammessi inoltre i seguenti valori:
         4 (BI_JPEG)
@@ -79,13 +79,13 @@ typedef struct
             La bitmap incapsula un'immagine in formato PNG. */
     uint32_t BiSizeImage;
     /* Indica la dimensione in byte del buffer mappa dei pixel. Questo valore
-        può essere lasciato a zero quando biCompression è impostato a BI_RGB. */
+        puï¿½ essere lasciato a zero quando biCompression ï¿½ impostato a BI_RGB. */
     uint32_t BiXPelsPerMeter;
     /* risoluzione orizzontale del dispositivo di output in pixel per metro;
-        0 se la risoluzione non è specificata. */
+        0 se la risoluzione non ï¿½ specificata. */
     uint32_t BiYPelsPerMeter;
     /* risoluzione verticale del dispositivo di output in pixel per metro;
-        0 se la risoluzione non è specificata. */
+        0 se la risoluzione non ï¿½ specificata. */
     uint32_t BiClrUsed;
     /* quando biBitCount = 1
             0
@@ -94,8 +94,8 @@ typedef struct
             colori; 0 indica il numero massimo (16 o 256).
         altrimenti
             numero di corrispondenze nella tavolozza dei colori (0 = nessuna tavolozza).
-            Per profondità maggiori di 8 bit per pixel la tavolozza non è normalmente
-            necessaria, ma quando c'è può essere usata dal sistema o da alcuni programmi
+            Per profonditï¿½ maggiori di 8 bit per pixel la tavolozza non ï¿½ normalmente
+            necessaria, ma quando c'ï¿½ puï¿½ essere usata dal sistema o da alcuni programmi
             per ottimizzare la rappresentazione dell'immagine. */
     uint32_t BiClrImportant;
     /* quando biBitCount = 1, 4 o 8

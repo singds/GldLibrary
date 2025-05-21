@@ -2,7 +2,7 @@
 #define GUI_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldCore/GldObj.h"
 #include "GldCore/GldDisp.h"

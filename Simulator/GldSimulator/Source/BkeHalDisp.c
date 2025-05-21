@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include "GldSimulator.h"
+#include "GldCfg.h"
 
 void gldsimulator_InvalidateArea (gldcoord_t x0, gldcoord_t y0, gldcoord_t x_size, gldcoord_t y_size);
 

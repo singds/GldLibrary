@@ -2,7 +2,7 @@
 #define GLDTOUCH_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldHal/GldHalTouch.h"
 #include "GldMisc/GldCoord.h"

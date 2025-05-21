@@ -2,7 +2,7 @@
 #define OBJTEMPLATE_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldAssets/GldAssets.h"
 

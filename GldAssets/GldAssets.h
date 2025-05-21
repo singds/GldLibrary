@@ -2,7 +2,7 @@
 #define GLDASSETS_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include <string.h>
 #include <stdio.h>

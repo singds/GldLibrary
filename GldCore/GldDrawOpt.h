@@ -2,7 +2,7 @@
 #define GLDDRAWOPT_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include <stdlib.h>
 #include "GldCore/GldDraw.h"

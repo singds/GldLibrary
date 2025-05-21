@@ -1,16 +1,19 @@
-#ifndef FONTARIALSZ14BPP1_H_INCLUDED
-#define FONTARIALSZ14BPP1_H_INCLUDED
+#ifndef GLDHALTIMER_H_INCLUDED
+#define GLDHALTIMER_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
-#include "GldRes/GldTxt.h"
+#include "GldCom.h"
+#include "GldCfg.h"
 
 //====================================================================== DEFINES
+typedef struct
+{
+    gldtime_t (*GetMillis) (void);
+} gldhaltimer_t;
 
 //============================================================= GLOBAL VARIABLES
-extern const gldtxt_NFont_t fontarialsz14bpp1_Data;
 
 //============================================================ GLOBAL PROTOTYPES
 
-#endif /* FONTARIALSZ14BPP1_H_INCLUDED */
+#endif /* GLDHALTIMER_H_INCLUDED */
 

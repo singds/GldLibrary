@@ -2,7 +2,7 @@
 #define GLDLLIST_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "Comdef.h"
+#include "GldCom.h"
 
 //====================================================================== DEFINES
 struct gldllist_s;

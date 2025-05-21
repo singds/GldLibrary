@@ -6,7 +6,7 @@
 #include "GldCore/GldDraw.h"
 #include "GldCore/GldRefr.h"
 #include "GldMisc/GldCoord.h"
-#include "SwTimer.h"
+#include "GldCore/GldTimer.h"
 #include <string.h>
 
 //====================================================================== DEFINES
@@ -20,7 +20,7 @@ typedef struct
     bool InhibitLongClick;   /* inibisce l'evento long click sull'oggetto attivo */
     bool InhibitRepeatClick; /* inibisce l'evento repeat click sull'oggetto attivo */
 
-    swtimer_Time_t LongClickDeadline; /* deadline evento long click (raggiunto questo timestamp si scatena l'evento) */
+    gldtime_t LongClickDeadline; /* deadline evento long click (raggiunto questo timestamp si scatena l'evento) */
 
     objbutton_t *DragBtn; /* oggetto trascinato */
     /* ultima posizione di tocco (utilizzata per calcolare lo spostamente del
@@ -40,7 +40,7 @@ typedef struct
         L_REPEAT_STATUS_FAST,
     } RepeatStatus;
     uint16_t RepeatCnt;
-    swtimer_Time_t RepeatDeadline; /* deadline primo evento repeat click */
+    gldtime_t RepeatDeadline; /* deadline primo evento repeat click */
 } gldtouch_Ctx_t;
 
 #define L_REPEAT_WAIT_INTERVAL          300
@@ -169,7 +169,7 @@ void gldtouch_StartDrag (gldobj_t *obj)
 ______________________________________________________________________________*/
 bool GetTouch (gldhaltouch_t *drv, gldcoord_Point_t *pos)
 {
-    static swtimer_Time_t timer;
+    static gldtime_t timer;
     static bool state = false;
     static int16_t last_x, last_y;
 
@@ -177,9 +177,9 @@ bool GetTouch (gldhaltouch_t *drv, gldcoord_Point_t *pos)
     {
         int16_t x, y;
         bool newState;
-        swtimer_Time_t currentTick;
+        gldtime_t currentTick;
 
-        currentTick = swtimer_GetMsActivity ( );
+        currentTick = gldtimer_GetMillis ( );
         /* ottengo tocco e coordinate dall'hardware,
            filtro lo stato del tocco con un ritardo di 'GLDCFG_TOUCH_DEBOUNCE_TIME' ms */
         if ((newState = drv->GetTouch (&x, &y)) == true)
@@ -190,7 +190,7 @@ bool GetTouch (gldhaltouch_t *drv, gldcoord_Point_t *pos)
 
         if (newState != state)
         {
-            if (swtimer_IsAfterEq (currentTick, timer))
+            if (gldtimer_IsAfterEq (currentTick, timer))
             { /* "mantengo il timer" e scrivo le coordinate del tocco */
                 timer = currentTick;
                 state = newState;
@@ -244,9 +244,9 @@ static void ManagePress (gldtouch_Ctx_t *ctx)
         /* init state variables */
         ctx->LastTouchPos = ctx->TouchPos; /* salvo la prima posizione di tocco */
         if (ctx->ActiveBtn) {
-            ctx->LongClickDeadline = swtimer_GetMsActivity ( ) + ctx->ActiveBtn->LongClickTime * 100;
+            ctx->LongClickDeadline = gldtimer_GetMillis ( ) + ctx->ActiveBtn->LongClickTime * 100;
             ctx->RepeatStatus = L_REPEAT_STATUS_START;
-            ctx->RepeatDeadline = swtimer_GetMsActivity ( ) + L_REPEAT_WAIT_INTERVAL;
+            ctx->RepeatDeadline = gldtimer_GetMillis ( ) + L_REPEAT_WAIT_INTERVAL;
         }
 
         if (ctx->ActiveBtn != NULL)
@@ -279,7 +279,7 @@ static void ManagePress (gldtouch_Ctx_t *ctx)
                 if (ctx->InhibitLongClick == false)
                 {
                     if (ctx->ActiveBtn->LongClick == true &&
-                        swtimer_IsAfterEq (swtimer_GetMsActivity ( ), ctx->LongClickDeadline))
+                        gldtimer_IsAfterEq (gldtimer_GetMillis ( ), ctx->LongClickDeadline))
                     {
                         /* il long click si scatena una sola volta e quando rimuovi
                         il dito dal display dopo che si � scatenato non viene
@@ -295,9 +295,9 @@ static void ManagePress (gldtouch_Ctx_t *ctx)
                     if (ctx->ActiveBtn &&
                         ctx->ActiveBtn->RepeatClick == true)
                     {
-                        if (swtimer_IsAfterEq (swtimer_GetMsActivity ( ), ctx->RepeatDeadline))
+                        if (gldtimer_IsAfterEq (gldtimer_GetMillis ( ), ctx->RepeatDeadline))
                         {
-                            swtimer_Time_t interval;
+                            gldtime_t interval;
                             
                             if (ctx->RepeatStatus == L_REPEAT_STATUS_START) {
                                 interval = L_REPEAT_SLOW_INTERVAL;
@@ -317,7 +317,7 @@ static void ManagePress (gldtouch_Ctx_t *ctx)
                                 interval = L_REPEAT_FAST_INTERVAL;
                             }
                             
-                            ctx->RepeatDeadline = swtimer_GetMsActivity ( ) + interval;
+                            ctx->RepeatDeadline = gldtimer_GetMillis ( ) + interval;
                             ctx->ActiveBtn->Obj.FuncEvent (&ctx->ActiveBtn->Obj, GLDOBJ_EVENT_REPEAT_CLICK, NULL);
                         }
                     }

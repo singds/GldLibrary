@@ -1,18 +1,15 @@
-#ifndef GUIFONT_H_INCLUDED
-#define GUIFONT_H_INCLUDED
-
+#ifndef BKEGLDTOUCH_H_INCLUDED
+#define BKEGLDTOUCH_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
-#include "GldRes/GldTxt.h"
-
-#include "FontArialSz14Bpp1.h"
+#include "GldHal/GldHalTouch.h"
 
 //====================================================================== DEFINES
 
 //============================================================= GLOBAL VARIABLES
-extern gldtxt_Font_t *guifont_Arial14;
+extern gldhaltouch_t bkehaltouch_Touch;
 
 //============================================================ GLOBAL PROTOTYPES
 
-#endif /* GUIFONT_H_INCLUDED */
+#endif /* BKEGLDTOUCH_H_INCLUDED */
+

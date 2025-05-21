@@ -203,7 +203,7 @@ void gldactivity_Task (void)
                 thread = gldllist_Get (nodeTh);
                 if (thread != NULL && thread->Status == GLDACTIVITY_THREAD_RUNNING)
                 { /* se ho raggiunto il timestamp eseguo la funzione */
-                    if (swtimer_IsAfterEq (swtimer_GetMsActivity ( ), thread->RunDeadline))
+                    if (gldtimer_IsAfterEq (gldtimer_GetMillis ( ), thread->RunDeadline))
                     { /* esecuzione one shot */
                         thread->Status = GLDACTIVITY_THREAD_STOPPED;
                         if (thread->ThreadFunc)
@@ -309,11 +309,11 @@ void gldactivity_ObjThreadsDestroy (gldobj_t *obj)
         <timeout> Timeout in ms. (es. 1000 per 1 secondo)
  Ret: - None.
 ______________________________________________________________________________*/
-void gldactivity_ThreadStart (gldactivity_Thread_t *thread, swtimer_Time_t timeout)
+void gldactivity_ThreadStart (gldactivity_Thread_t *thread, gldtime_t timeout)
 {
     GLDCFG_ASSERT (thread);
     /* inizializzo la deadline e metto in run il thread */
-    thread->RunDeadline = swtimer_GetMsActivity ( ) + timeout;
+    thread->RunDeadline = gldtimer_GetMillis ( ) + timeout;
     thread->Status = GLDACTIVITY_THREAD_RUNNING;
 }
 

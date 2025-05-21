@@ -8,11 +8,10 @@
 #include <WindowsX.h>
 #include "App.h"
 
-extern "C"
-{
+
+extern "C" {
 #include "GldCfg.h"
 #include "BkeHalDisp.h"
-#include "SwTimer.h"
 }
 
 //====================================================================== CLASSES
@@ -51,7 +50,7 @@ static const uint32_t WinWidth = BKEHALDISP_FRAME_BUFFER_Y_RES; // Dimensione x 
 static const uint32_t WinHeight = BKEHALDISP_FRAME_BUFFER_X_RES; // Dimensione y della finestra (pxl)
 #endif
 static const uint8_t FbBytePPxl = BKEHALDISP_BYTE_PER_PXL; // Byte per pixel del framebuffer
-static const UINT_PTR TmrIDSwTimer = 0; // Timer id del timer utilizzato per l'swtimer
+static const UINT_PTR TmrIDSwTimer = 0; // Timer id del timer utilizzato per il timer della GUI
 
 static HINSTANCE AppHInst; // istanza corrente dell'applicazione
 static ID2D1Factory *D2dFactory; // direct2d factory
@@ -164,8 +163,10 @@ static LRESULT CALLBACK WinClassProc (HWND hWnd, UINT message, WPARAM wParam, LP
 	case WM_LBUTTONUP:
 		return HandleMouse (message, wParam, lParam);
 	case WM_TIMER:
-		for (uint16_t j = 0; j < 100; j++)
-			swtimer_Manager1Ms ( );
+		for (uint16_t j = 0; j < 100; j++) {
+			// TODO call the timer handler
+			// bkehaltimer_Manager1Ms();
+		}
 		return 0;
 	default:
 		return DefWindowProc (hWnd, message, wParam, lParam);
@@ -342,7 +343,7 @@ static BOOL InitInstance (HINSTANCE hInstance, int nCmdShow)
 		return FALSE;
 	}
 
-	swtimer_InitModule ( );
+	//TODO gldtimer_InitModule ( );
 	SetTimer (HWind, // handle to main window 
 			  TmrIDSwTimer, // timer identifier 
 			  100, // ms interval 
@@ -382,7 +383,10 @@ static HRESULT CreateGraphicsResources ( )
 			D2D1_BITMAP_PROPERTIES bmpProp;
 
 			bmpProp.pixelFormat = D2D1::PixelFormat (DXGI_FORMAT_R8G8B8A8_UNORM, D2D1_ALPHA_MODE_IGNORE);
+#pragma warning(push)
+#pragma warning(disable: 4996)
 			D2dFactory->GetDesktopDpi (&bmpProp.dpiX, &bmpProp.dpiY);
+#pragma warning(pop)
 			hr = D2dRenderTarget->CreateBitmap (bmpSize, bmpProp, &D2dBitmap);
 		}
 	}

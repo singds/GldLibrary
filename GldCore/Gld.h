@@ -2,7 +2,7 @@
 #define GLD_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include <stdlib.h>
 
@@ -13,11 +13,10 @@ typedef struct
     int32_t AllocMemMax;  /* massima quantit� di memoria allocata simultaneamente */
 } gld_Statistics_t;
 
-//============================================================= GLWOBAL VARIABLES
+//============================================================= GLOBAL VARIABLES
 extern gld_Statistics_t gld_Statistics;
 
 //============================================================ GLOBAL PROTOTYPES
-const library_Info_t *gld_GetInfo (void);
 void *gld_Malloc (size_t size);
 void *gld_Realloc (void *ptr, size_t size);
 void *gld_Calloc (size_t nmemb, size_t size);

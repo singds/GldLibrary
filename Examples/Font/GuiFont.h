@@ -3,7 +3,7 @@
 
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 #include "GldRes/GldTxt.h"
 #include "GldRes/GldFont.h"
 

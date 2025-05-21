@@ -2,7 +2,7 @@
 #define GLDRECT_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldCfg.h"
 #include "GldMisc/GldCoord.h"
@@ -23,7 +23,7 @@ typedef struct
 typedef struct
 {
     /* la superficie sorgente e quella di destinazione devono avere stessi bpp.
-    possono però avere orientamenti differenti. Le prestazioni di gran lunga
+    possono perï¿½ avere orientamenti differenti. Le prestazioni di gran lunga
     migliori si ottengono quando le superfici hanno lo stesso orientamento.
     */
     gldrect_t SrcCanvas; /* superficie di memoria sorgente */

@@ -2,7 +2,7 @@
 #define GLDOBJ_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldHal/GldHalDisp.h"
 #include "GldMisc/GldCoord.h"

@@ -2,7 +2,7 @@
 #define GLDCOLOR_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 //====================================================================== DEFINES
 #define GLDCOLOR_R_OFF (16)

@@ -2,7 +2,7 @@
 #define GLDFONT_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldCfg.h"
 #include "GldTxt.h"
@@ -26,7 +26,7 @@ typedef struct
 #if (GLDCFG_TXT_FONT_FORMAT == GLDCFG_TXT_FONT_FORMAT__NEW)
 /* new font support */
 /* Il novo formato per i font supporta l'antialiasing.
-   Perchè l'antialiasing funzioni deve essere attivo il prerendering 'GLDCFG_MEMFB_ENABLED'.
+   Perchï¿½ l'antialiasing funzioni deve essere attivo il prerendering 'GLDCFG_MEMFB_ENABLED'.
    Oppure in alternativa con rendering diretto su display il driver del display
    deve implementare la funzione 'GetPxl'. */
 typedef struct
@@ -44,7 +44,7 @@ typedef struct gldfont_NFont_s
     uint8_t Height;     /* Altezza dei caratteri [pxl] */
     const gldfont_NFontInfo_t *PtrNFontInfo;
     const uint8_t *PtrFontData;
-    uint8_t BitColor; /* Profondità colore 1,2,4 */
+    uint8_t BitColor; /* Profonditï¿½ colore 1,2,4 */
 
     struct gldfont_NFont_s *NextFontGroup; /* prossimo gruppo di lettere di questo font */
 

@@ -2,7 +2,7 @@
 #define GLDDRAW_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldHal/GldHalDisp.h"
 #include "GldMisc/GldColor.h"

@@ -2,10 +2,10 @@
 #define GLDACTIVITY_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldAssets/GldAssets.h"
-#include "SwTimer.h"
+#include "GldCore/GldTimer.h"
 
 //====================================================================== DEFINES
 struct gldactivity_s;
@@ -37,7 +37,7 @@ typedef struct gldactivity_Thread_s
     gldllist_Node_t ListNode;
     gldobj_t *LinkedObj; /* oggetto associato a questo thread */
     gldactivity_ThreadState_e Status;
-    swtimer_Time_t RunDeadline; /* timestamp della prossima esecuzione di questo thread */
+    gldtime_t RunDeadline; /* timestamp della prossima esecuzione di questo thread */
     void (*ThreadFunc) (struct gldactivity_Thread_s *);
 } gldactivity_Thread_t;
 
@@ -66,7 +66,7 @@ void gldactivity_Task (void);
 gldactivity_Thread_t *gldactivity_ThreadCreate (gldobj_t *, void (*func) (struct gldactivity_Thread_s *));
 void gldactivity_ThreadDestroy (gldactivity_Thread_t *thread);
 void gldactivity_ObjThreadsDestroy (gldobj_t *obj);
-void gldactivity_ThreadStart (gldactivity_Thread_t *thread, swtimer_Time_t timeout);
+void gldactivity_ThreadStart (gldactivity_Thread_t *thread, gldtime_t timeout);
 void gldactivity_ThreadStop (gldactivity_Thread_t *thread);
 
 void gldactivity_NotifyDestroy (gldobj_t *obj);

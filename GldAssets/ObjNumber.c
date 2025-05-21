@@ -3,7 +3,7 @@
 #include "GldAssets/GldActivity.h"
 
 #include "GldCfg.h"
-#include "SwTimer.h"
+#include "GldCore/GldTimer.h"
 #include <math.h>
 
 //====================================================================== DEFINES

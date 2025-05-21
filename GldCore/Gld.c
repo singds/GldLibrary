@@ -3,11 +3,6 @@
 
 #include "GldCfg.h"
 
-LIBRARY_INFO (0, 0, "Gld"); // Info versione Major, Minor, Nome modulo
-/* v-0.0
-    Prima versione ufficialmente rilasciata.
-*/
-
 //====================================================================== DEFINES
 
 //=========================================================== PRIVATE PROTOTYPES
@@ -18,17 +13,6 @@ LIBRARY_INFO (0, 0, "Gld"); // Info versione Major, Minor, Nome modulo
 gld_Statistics_t gld_Statistics;
 
 //============================================================= GLOBAL FUNCTIONS
-
-/*______________________________________________________________________________ 
- Desc:  Fornisce informazioni su questa libreria, come nome o versione.
- Arg: - Nessun argomento.
- Ret: - Puntatore a struttura constante che raccoglie informazioni specifiche
-        per questa libreria.
-______________________________________________________________________________*/
-const library_Info_t *gld_GetInfo (void)
-{
-    return &LibInfo;
-}
 
 /*______________________________________________________________________________ 
  Desc:  Come il malloc tradizionale, ma tiene traccia della memoria allocata.

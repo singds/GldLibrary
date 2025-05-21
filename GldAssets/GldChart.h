@@ -2,7 +2,7 @@
 #define GLDCHART_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldAssets/GldAssets.h"
 
@@ -14,7 +14,7 @@
 		for (gldchart_t *thisChart = gldassets_CheckType (thisObj, GLDASSETS_TYPE_CHART); thisChart != NULL; thisChart = NULL)
 
 /* questa funzione deve tornare il valore y del punto alla coordinata x. il
-   valore restituito deve essere true se il campione è disponibile, false
+   valore restituito deve essere true se il campione ï¿½ disponibile, false
    altrimenti */
 typedef bool (*gldchart_FuncTrace_t) (int32_t *get_y, int32_t ascisse_x, uint32_t x_pxl);
 
@@ -33,12 +33,12 @@ typedef struct
 	
 	int32_t MaxOrdinateY; /* massimo valore rappresentato nella scala delle ordinate */
 	int32_t MinOrdinateY; /* minimo valore rappresentato nella scala delle ordinate */
-	char UdmY[10]; /* unità di misura sull'asse Y */
+	char UdmY[10]; /* unitï¿½ di misura sull'asse Y */
 	void (*PrintX) (char *dest, uint16_t dest_len, int32_t value);
 	
 	int32_t MaxAscisseX; /* massimo valore delle ascisse visualizzato */
 	int32_t MinAscisseX; /* minimo valore delle ascisse visualizzato */
-	char UdmX[10]; /* unità di misura sull'asse X */
+	char UdmX[10]; /* unitï¿½ di misura sull'asse X */
 	void (*PrintY) (char *dest, uint16_t dest_len, int32_t value);
 	
 	void *Bind;

@@ -177,6 +177,8 @@
 
 #define GLDCFG_ASSERT(exp)                { if ((exp) == 0) __breakpoint (0); }
 
+typedef int32_t gldtime_t;
+
 //*** <<< end of configuration section >>>    ***
 
 #include "GldMisc/GldColor.h"

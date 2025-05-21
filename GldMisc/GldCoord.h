@@ -2,7 +2,7 @@
 #define GLDCOORD_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 //====================================================================== DEFINES
 #define GLDCOORD_ALIGN_LEFT   (0x00 << 0)

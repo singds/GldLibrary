@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -89,10 +89,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS=1</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>.\..\..\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\..\..\; .\Image\; .\..\..\GldCore\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -153,11 +153,18 @@
   <ItemGroup>
     <ClInclude Include="GldSimulator.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Source\GldCfg.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\GldAssets\GldActivity.c" />
+    <ClCompile Include="..\..\GldAssets\GldAssets.c" />
+    <ClCompile Include="..\..\GldAssets\ObjButton.c" />
+    <ClCompile Include="..\..\GldAssets\ObjCustom.c" />
+    <ClCompile Include="..\..\GldAssets\ObjImage.c" />
+    <ClCompile Include="..\..\GldAssets\ObjLabel.c" />
+    <ClCompile Include="..\..\GldAssets\ObjNumber.c" />
+    <ClCompile Include="..\..\GldAssets\ObjProgressBar.c" />
     <ClCompile Include="..\..\GldCore\Gld.c" />
     <ClCompile Include="..\..\GldCore\GldBoost.c" />
     <ClCompile Include="..\..\GldCore\GldDisp.c" />
@@ -167,18 +174,21 @@
     <ClCompile Include="..\..\GldCore\GldMemFb.c" />
     <ClCompile Include="..\..\GldCore\GldObj.c" />
     <ClCompile Include="..\..\GldCore\GldRefr.c" />
+    <ClCompile Include="..\..\GldCore\GldTimer.c" />
     <ClCompile Include="..\..\GldCore\GldTouch.c" />
+    <ClCompile Include="..\..\GldMisc\GldColor.c" />
+    <ClCompile Include="..\..\GldMisc\GldCoord.c" />
+    <ClCompile Include="..\..\GldMisc\GldLlist.c" />
+    <ClCompile Include="..\..\GldMisc\GldMisc.c" />
+    <ClCompile Include="..\..\GldMisc\GldRect.c" />
+    <ClCompile Include="..\..\GldRes\GldFont.c" />
+    <ClCompile Include="..\..\GldRes\GldImg.c" />
+    <ClCompile Include="..\..\GldRes\GldTxt.c" />
     <ClCompile Include="GldSimulator.cpp" />
     <ClCompile Include="Source\App.c" />
-    <ClCompile Include="Source\Gui\Activity\ActAssets.c" />
-    <ClCompile Include="Source\Gui\Activity\ActTest1.c" />
-    <ClCompile Include="Source\Gui\BkeHalDisp.c" />
-    <ClCompile Include="Source\Gui\BkeHalTouch.c" />
-    <ClCompile Include="Source\Gui\Composite\CmpBtnImg.c" />
-    <ClCompile Include="Source\Gui\Font\FontArialSz14Bpp1.c" />
-    <ClCompile Include="Source\Gui\Font\GuiFont.c" />
-    <ClCompile Include="Source\Gui\Image\GuiImg.c" />
-    <ClCompile Include="Source\Gui\Text\GuiTxt.c" />
+    <ClCompile Include="Source\BkeHalDisp.c" />
+    <ClCompile Include="Source\BkeHalTimer.c" />
+    <ClCompile Include="Source\BkeHalTouch.c" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

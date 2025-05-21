@@ -2,7 +2,7 @@
 #define BKEGLDBOOST_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldHal/GldHalBoost.h"
 #include "stm32h7xx_hal.h"

@@ -1,16 +1,16 @@
-#ifndef ACTASSETS_H_INCLUDED
-#define ACTASSETS_H_INCLUDED
+#ifndef BKEHALTIMER_H_INCLUDED
+#define BKEHALTIMER_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
-
-#include "Activity.h"
+#include "GldHal/GldHalTimer.h"
 
 //====================================================================== DEFINES
 
 //============================================================= GLOBAL VARIABLES
-extern const gldactivity_Attr_t actassets_Page;
+extern gldhaltimer_t bkehaltimer_Timer;
 
 //============================================================ GLOBAL PROTOTYPES
 
-#endif /* ACTASSETS_H_INCLUDED */
+#endif /* BKEHALTIMER_H_INCLUDED */
+
+

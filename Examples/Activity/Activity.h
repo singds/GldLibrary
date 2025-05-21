@@ -2,10 +2,10 @@
 #define ACTIVITY_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "Gui.h"
-#include "SwTimer.h"
+#include "GldCore/GldTimer.h"
 
 //====================================================================== DEFINES
 

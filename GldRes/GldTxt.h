@@ -2,7 +2,7 @@
 #define GLDTXT_H_INCLUDED
 
 //===================================================================== INCLUDES
-#include "ComDef.h"
+#include "GldCom.h"
 
 #include "GldCfg.h"
 

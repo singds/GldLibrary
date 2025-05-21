@@ -3,7 +3,7 @@
 
 #include "GldAssets/GldActivity.h"
 #include "GldAssets/ObjButton.h"
-#include "GldAssets/GldChart.h"
+//s#include "GldAssets/GldChart.h"
 #include "GldAssets/ObjCustom.h"
 #include "GldAssets/ObjImage.h"
 #include "GldAssets/ObjLabel.h"

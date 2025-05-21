@@ -13,23 +13,17 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="File di origine\Gui">
-      <UniqueIdentifier>{b29f0642-ed73-4de7-b7a5-afa2371c7246}</UniqueIdentifier>
+    <Filter Include="File di origine\GldCore">
+      <UniqueIdentifier>{5bbd476c-c0ee-44e1-9906-17109d06115f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File di origine\Gui\Activity">
-      <UniqueIdentifier>{0f9d9253-97de-426c-8a09-c7c0e2c80ceb}</UniqueIdentifier>
+    <Filter Include="File di origine\GldAssets">
+      <UniqueIdentifier>{5d84f2a6-72c2-49d8-ad0f-b5e944a06c24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File di origine\Gui\Resource">
-      <UniqueIdentifier>{32082802-9fb9-44b4-8682-fb7f12aae3f7}</UniqueIdentifier>
+    <Filter Include="File di origine\GldMisc">
+      <UniqueIdentifier>{c1af5221-3920-409d-b6f9-f1f4547b5907}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File di origine\Gui\Driver">
-      <UniqueIdentifier>{bb45728a-d722-4975-8c47-c8dd65a35928}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File di origine\Gui\Composite">
-      <UniqueIdentifier>{84f00558-07d1-4678-a2c6-9a7d83ab9255}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="File di origine\GldLibrary">
-      <UniqueIdentifier>{d447b583-3145-41b4-96f6-65986335a48b}</UniqueIdentifier>
+    <Filter Include="File di origine\GldRes">
+      <UniqueIdentifier>{8c99de1e-17e6-47c1-a70f-4d8db8b0434b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,9 +39,6 @@
     <ClInclude Include="GldSimulator.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GldCfg.h">
-      <Filter>File di origine\Gui</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -56,65 +47,98 @@
     <ClCompile Include="GldSimulator.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Gui\Activity\ActAssets.c">
-      <Filter>File di origine\Gui\Activity</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Gui\Text\GuiTxt.c">
-      <Filter>File di origine\Gui\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Gui\Image\GuiImg.c">
-      <Filter>File di origine\Gui\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Gui\Font\GuiFont.c">
-      <Filter>File di origine\Gui\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Gui\Font\FontArialSz14Bpp1.c">
-      <Filter>File di origine\Gui\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Gui\BkeHalDisp.c">
-      <Filter>File di origine\Gui\Driver</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Gui\BkeHalTouch.c">
-      <Filter>File di origine\Gui\Driver</Filter>
-    </ClCompile>
     <ClCompile Include="Source\App.c">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Gui\Activity\ActTest1.c">
-      <Filter>File di origine\Gui\Activity</Filter>
+    <ClCompile Include="Source\BkeHalDisp.c">
+      <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Gui\Composite\CmpBtnImg.c">
-      <Filter>File di origine\Gui\Composite</Filter>
+    <ClCompile Include="Source\BkeHalTimer.c">
+      <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GldCore\GldTouch.c">
+    <ClCompile Include="Source\BkeHalTouch.c">
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\Gld.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldBoost.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldDisp.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldDraw.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldDrawOpt.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldDrawStd.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldMemFb.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldObj.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
     </ClCompile>
     <ClCompile Include="..\..\GldCore\GldRefr.c">
-      <Filter>File di origine\GldLibrary</Filter>
+      <Filter>File di origine\GldCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldCore\GldTimer.c">
+      <Filter>File di origine\GldCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldCore\GldTouch.c">
+      <Filter>File di origine\GldCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\GldActivity.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\ObjButton.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\ObjCustom.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\ObjImage.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\ObjLabel.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\ObjNumber.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\ObjProgressBar.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldMisc\GldColor.c">
+      <Filter>File di origine\GldMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldMisc\GldCoord.c">
+      <Filter>File di origine\GldMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldMisc\GldLlist.c">
+      <Filter>File di origine\GldMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldMisc\GldMisc.c">
+      <Filter>File di origine\GldMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldMisc\GldRect.c">
+      <Filter>File di origine\GldMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldAssets\GldAssets.c">
+      <Filter>File di origine\GldAssets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldRes\GldFont.c">
+      <Filter>File di origine\GldRes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldRes\GldImg.c">
+      <Filter>File di origine\GldRes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GldRes\GldTxt.c">
+      <Filter>File di origine\GldRes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

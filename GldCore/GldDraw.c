@@ -738,7 +738,11 @@ int16_t glddraw_Printf (gldhaldisp_t *disp, gldcoord_t x, gldcoord_t y, uint8_t 
     lenght = vsnprintf (NULL, 0, format, va);
     va_end (va);
 
+#ifndef _MSC_VER
     char buff[lenght + 1];
+#else
+    char buff[2048 + 1];
+#endif
 
     /* print on buffer */
     va_start (va, format);

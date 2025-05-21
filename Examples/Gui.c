@@ -123,12 +123,12 @@ static void ThreadGuiRender (void *arg)
         gldtouch_Task ( );
         gldactivity_Task ( );
         
-        swtimer_Time_t startTime = swtimer_GetMsActivity ( );
+        gldtime_t startTime = gldtimer_GetMillis ( );
         
         gldrefr_Task ( );
             
 #if (1) // calcolo il massimo tempo impiegato per il refresh di un frame
-        swtimer_Time_t elapsedTime = swtimer_GetMsActivity ( ) - startTime;
+        gldtime_t elapsedTime = gldtimer_GetMillis ( ) - startTime;
         if (elapsedTime > gui_MaxFrameRefreshTime)
             gui_MaxFrameRefreshTime = elapsedTime;
 #endif

@@ -1,11 +1,9 @@
 //===================================================================== INCLUDES
 #include "App.h"
 
-#include "Gui.h"
-#include "Gui/BkeHalDisp.h"
-#include "Gui/BkeHalTouch.h"
-#include "Gui/Font/GuiFont.h"
-#include "Gui/Activity/ActAssets.h"
+#include "BkeHalDisp.h"
+#include "BkeHalTouch.h"
+#include "BkeHalTimer.h"
 
 //====================================================================== DEFINES
 
@@ -25,18 +23,13 @@ ______________________________________________________________________________*/
 void app_InitModule (void)
 {
 	gldrefr_Init ( );
-	gldassets_InitModule ( );
-
-	guifont_Arial14 = gldtxt_FontOpen (&fontarialsz14bpp1_Data);
 
 	bkehaldisp_Init ( );
-	glddisp_Disp = &bkehaldisp_Display;
-	glddisp_Init ( );
+	glddisp_Init (&bkehaldisp_Display);
+	gldtouch_Init (&bkehaltouch_Touch);
+	gldtimer_Init (NULL);
 
-	gldtouch_Touch = &bkehaltouch_Touch;
-	gldtouch_Init ( );
-
-	gldactivity_Next (&actassets_Page, false);
+	//gldactivity_Next (&actassets_Page, false);
 }
 
 /*______________________________________________________________________________
@@ -48,7 +41,6 @@ void app_Task (void)
 {
 	gldrefr_Task ( );
 	gldtouch_Task ( );
-	gldassets_Task ( );
 }
 
 //============================================================ PRIVATE FUNCTIONS
