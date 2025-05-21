@@ -1,0 +1,105 @@
+- Modificare il programma 'HeaderGenerator.exe' in modo tale che i file che
+  genera siano compatibili siano compatibili con i nuovi standard del formato
+  file, come per esempio #ifndef sull'header 'GuiImg.h'.
+
+{ OK }
+- Per migliorare le prestazioni grafiche introdurre funzioni che lavorano
+  direttamente su una porzione di frame buffer e non su un'istanza di un display.
+  Con una singola funzione di flush sul display si potrà poi copiare tutto
+  quanto elaborato sul display esterno.
+  Mantenere tutto il codice vecchio e marchiarlo come deprecated.
+
+- Introdurre un formato 'proprietario' delle immagini, che memorizzi anche il
+  canale alpha e con cui si possa sfruttare le accelerazioni hardware offerte
+  dalle nuove mcu. Sarà una mappatura di pixel 1 (vedi touchgfx).
+
+- Introdurre un layer di accelerazione hardware con cui astrarre le potenzialità
+  dei nuovi mico. Questo dovrebbe fornire l'accesso alle funzioni DMA2D degli
+  ST.
+
+- Migliorare il sistema di gestione dei testi definendo un formato standard per
+  il file delle traduzioni (exel). Dovrai fare un programmino che poi converte
+  questo file in sorgente c.
+
+- Introdurre nelle traduzioni la possibilità di avere dei 'wildcard' che possono
+  essere sostituiti in runtime (vedi touchgfx).
+
+- Automatizzare il processo di inclusione e conversione immagini nel progetto.
+  Uno script dovrebbe convertire tutte le immagini nella cartella e generare
+  oltre ad un header anche un file sorgente che racchiude tutte le immagini.
+  Ora bisogni includere espicitamente a mano ciascuna immagine ed è scomodo.
+
+{ OK }
+- Ristrutturare la creazione/modifica degli oggetti per fare in modo di poter
+  creare oggetti composti con dati specifici. Dovrai probabilmente modificare il
+  sistema di allocazione per gli oggetti in modo tale da poter allocare più
+  memoria per l'oggetto caratterizzato.
+
+{ OK }
+- Modificare prototipo funzioni eventi da
+  int32_t (gldobj_t *obj, gldobj_Event_e evt, void *ext)
+  a
+  void (gldobj_t *obj, gldobj_Event_e evt, void *ext)
+  Il valore di ritorni int32_t non è utile e risulta solo una scocciatura.
+  Forse è il caso di fare la stessa cosa con la funzione di disegno.
+
+- Dividere le immagini sorgenti da quelle convertite pronte per essere utilizzate.
+  Attualmente sono nella stessa cartella e non è soluzione pulita.
+
+- Sincronizzare il refresh della grafica con il refresh del display.
+
+{ OK }
+- Modifica l'ordine del refresh in modo tale che gli ultimi figli aggiunti siano
+  quelli più in foreground. Questo è concettualmente più corretto e permette di
+  creare oggetti di base a cui aggiungere successivamente in foreground altri
+  elementi più semplicemente.
+
+{ OK }
+- Modificare struttura oggetti per permettere una facile ereditarietà.
+  Mutuare da c++ il concetto di funzione virtuale e il layout di classi che
+  ereditano da altre classe. Questo semplificherà e renderà più chiaro e lineare
+  il processo di definizione di nuovi oggetti ereditando da quelli già definiti.
+
+{ OK }
+- Baco nella funzione "DrawChar": se la lettera specificata non esiste disegna a
+  caso.
+
+{ OK }
+- Aggiungere la possibilità di mettere in scheduling di esecuzione una funzione
+  associata alla pagina (tipo un'evento da gestire dopo 5 secondi) che viene
+  annullata automaticamente al cambio della pagina. Si potrebbe addirittura
+  eliminare activity task e fare in modo che all'evento activity create e resume
+  sia compito dell'utente creare un task da eseguire.
+
+{ OK }
+- [BUG] La funzione 'gldrefr_GetTotalInvalidArea' restituisce un risultato errato
+  quando all'interno della lista delle aree invalidate c'è un'area di dimensione
+  massima (X2=INT16_MAX, X1=INT16_MIN, Y2=INT16_MAX, Y1=INT16_MIN).
+
+{ OK }
+- [BUG] In 'gldimage_SetImage' devi invalidare anche l'area dell'immagine
+  precedentemente visualizzata.
+
+{ OK }
+- Riorganizzare la struttura degli oggetti per renderli più facilmente
+  espandibili.
+
+{ OK }
+- Cambiare il tipo del campo Tag di ciascun oggetto. Rendilo un intero. Per la
+  ricerca in base al tag, usa un numero variabile di argomenti di tipo intero.
+
+{ OK }
+- Aggiungere nell module "gldllist" la possibilità di aggiungere un nodo prima
+  o dopo un'altro.
+
+{ OK }
+- Separare la funzione di distruzione di un oggetto dalla funzione di notifica
+  eventi.
+  Rendi così sovrascrivibile senza impedimenti la funzione di notifica eventi
+  degli asset di base.
+
+- Dividere i componenti da ottimizzare in un gruppo CMSIS separato.
+
+{ OK }
+- Mostra tocco come oggetto separato e renderizzarlo sempre in foreground.
+  Creato layer utente e di sistema separati.
